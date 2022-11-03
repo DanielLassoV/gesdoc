@@ -12,4 +12,9 @@ class ClientesController extends Controller
         $clientes = Clientes::all();
         return view('templates/clientes/index', compact('clientes'));
     }
+
+    public function create()
+    {
+        return view('templates/clientes/create');
+    }
 }

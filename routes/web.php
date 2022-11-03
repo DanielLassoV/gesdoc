@@ -16,6 +16,8 @@ Route::middleware('auth')->get('/empleados', [EmpleadosController::class, 'index
 
 // Modulo clientes
 Route::middleware('auth')->get('/clientes', [ClientesController::class, 'index'])->name('clientes.index');
+Route::middleware('auth')->get('/clientes/create', [ClientesController::class, 'create'])->name('clientes.create');
+
 
 // Modulo departamento          
 Route::middleware('auth')->get('/departamento', [DepartamentoController::class, 'index'])->name('departamento.index');
