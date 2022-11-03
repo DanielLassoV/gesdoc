@@ -59,4 +59,9 @@
                                     </tr>
                                 @endforeach
                             </tbody>
-                        @endsection
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
