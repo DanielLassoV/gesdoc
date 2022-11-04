@@ -6,10 +6,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="fl"><i class="fa-solid fa-people-group"></i></i> Listados de clientes</h3>
-                        <button type="button" class="btn btn-primary fr">
+                        <h3 class="fl"><i class="fa-solid fa-people-group"></i></i> Listado de clientes</h3>
+                        <a href="{{ route('clientes.create') }}" type="button" class="btn btn-primary fr">
                             <i class="fa-solid fa-plus"></i> Nuevo
-                        </button>
+                        </a>
                     </div>
 
                     <div class="card-body">
@@ -38,10 +38,12 @@
                                         <td>{{ $item->direccion }}</td>
                                         <td>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button type="button" class="btn btn-warning btn-sm"><i
-                                                        class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                                <button type="button" class="btn btn-danger btn-sm"><i
-                                                        class="fa-solid fa-trash-can"></i> Eliminar</button>
+                                                <a href="{{ route('clientes.edit', $item) }}" type="button"
+                                                    class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i>
+                                                    Editar</a>
+                                                <a href="{{ route('clientes.delete', $item->id) }}" type="button"
+                                                    class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i>
+                                                    Eliminar</a>
                                             </div>
                                         </td>
                                         {{-- <td>{{ $item['nombre'] }}</td> --}}

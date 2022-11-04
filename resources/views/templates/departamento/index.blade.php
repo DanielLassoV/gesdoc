@@ -40,8 +40,9 @@
                                                 <a href="{{ route('departamento.edit', $item) }}" type="button"
                                                     class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i>
                                                     Editar</a>
-                                                    <a href="{{route('departamento.delete',$item->id)}}" type="button" class="btn btn-danger btn-sm"><i
-                                                        class="fa-solid fa-trash-can"></i> Eliminar</a>
+                                                <a href="{{ route('departamento.delete', $item->id) }}" type="button"
+                                                    class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i>
+                                                    Eliminar</a>
                                             </div>
                                         </td>
                                         {{-- <td>{{ $item['nombre'] }}</td> --}}
