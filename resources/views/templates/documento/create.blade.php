@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- {{ print_r($clientes) }} --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -32,11 +31,11 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="tipo_id" class="form-label"> Tipo de documento </label>
+                                <label for="tipo_id" class="form-label"> Tipo de documento</label>
                                 <select class="form-select" aria-label="Default select example" name="tipo_id">
-                                    <option value="" selected>Seleccione</option>
+                                    <option value="">Seleccione</option>
                                     @foreach ($tipos as $tipo)
-                                        <option value="{{ $tipo->id }}">{{ $tipo->nombre }}</option>
+                                        <option value="{{ $tipo->id }}" {{ (old('tipo_id') == $tipo->id) ? 'selected' : '' }}>{{ $tipo->nombre }}</option>
                                     @endforeach
                                 </select>
                                 @error('tipo_id')
@@ -49,9 +48,9 @@
                             <div class="mb-3">
                                 <label for="cliente_id" class="form-label"> Clientes </label>
                                 <select class="form-select" aria-label="Default select example" name="cliente_id">
-                                    <option value="" selected>Seleccione</option>
+                                    <option value="">Seleccione</option>
                                     @foreach ($clientes as $cliente)
-                                        <option value="{{ $cliente->id }}">{{ $cliente->nombre }}</option>
+                                        <option value="{{ $cliente->id }}" {{ (old('cliente_id') == $cliente->id) ? 'selected' : '' }}>{{ $cliente->nombre }}</option>
                                     @endforeach
                                 </select>
                                 @error('cliente_id')
@@ -64,9 +63,9 @@
                             <div class="mb-3">
                                 <label for="departamento_id" class="form-label"> Departamento </label>
                                 <select class="form-select" aria-label="Default select example" name="departamento_id">
-                                    <option value="" selected>Seleccione</option>
+                                    <option value="">Seleccione</option>
                                     @foreach ($departamentos as $departamento)
-                                        <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
+                                        <option value="{{ $departamento->id }}" {{(old('departamento_id') == $departamento->id) ? 'selected' : ''}} >{{ $departamento->nombre }}</option>
                                     @endforeach
                                 </select>
                                 @error('departamento_id')

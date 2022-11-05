@@ -34,6 +34,51 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="tipo_id" class="form-label"> Tipo de documento </label>
+                                <select class="form-select" aria-label="Default select example" name="tipo_id">
+                                    <option value="" >Seleccione</option>
+                                    @foreach ($tipos as $tipo)
+                                        <option value="{{ $tipo->id }}" {{ (old('tipo_id', $dep->tipo_documento_id) == $tipo->id) ? 'selected' : '' }}>{{ $tipo->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                @error('tipo_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="cliente_id" class="form-label"> Clientes </label>
+                                <select class="form-select" aria-label="Default select example" name="cliente_id">
+                                    <option value="" >Seleccione</option>
+                                    @foreach ($clientes as $cliente)
+                                        <option value="{{ $cliente->id }}" {{ (old('cliente_id', $dep->clientes_id ) == $cliente->id ) ? 'selected' : '' }} >{{ $cliente->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                @error('cliente_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="departamento_id" class="form-label"> Departamento </label>
+                                <select class="form-select" aria-label="Default select example" name="departamento_id">
+                                    <option value="" >Seleccione</option>
+                                    @foreach ($departamentos as $departamento)
+                                        <option value="{{ $departamento->id }}" {{ (old('departamento_id',$dep->departamento_id) == $departamento->id) ? 'selected' : ''}} >{{ $departamento->nombre }}</option>
+                                    @endforeach
+                                </select>
+                                @error('departamento_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="formato" class="form-label"> Formato </label>
                                 <input placeholder="Ingrese el formato" type="text" class="form-control" id="formato"
                                     name="formato" aria-describedby="formatoHelp"

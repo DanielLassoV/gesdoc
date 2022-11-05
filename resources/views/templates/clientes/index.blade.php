@@ -12,10 +12,10 @@
                         </a>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                <i class="fa-regular fa-circle-check"></i> {{ session('status') }}
                             </div>
                         @endif
                         <table class="table table-striped table-hover">

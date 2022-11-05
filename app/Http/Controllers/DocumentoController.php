@@ -23,13 +23,14 @@ class DocumentoController extends Controller
         $clientes = Clientes::all();
         $departamentos =Departamento::all();
         return view('templates/documento/create', compact('tipos','clientes','departamentos'));
+
     }
 
     public function store(Request $request)
     {
         $request->validate([
             "nombre" => ["required"],
-            "formato" => ["required", "size:12"],
+            "formato" => ["required"],
             "size" => ["required"],
             "remitente" => ["required"],
             "tipo_id" => ["required"],
@@ -56,7 +57,11 @@ class DocumentoController extends Controller
 
     public function edit(Documento $dep)
     {
-        return view("templates.documento.edit", compact("dep"));
+        
+        $tipos = TipoDocumentos::all();
+        $clientes = Clientes::all();
+        $departamentos = Departamento::all();
+        return view("templates.documento.edit", compact("dep","tipos","clientes","departamentos"));
     }
 
     public function update(Request $request, $dep)
@@ -65,7 +70,12 @@ class DocumentoController extends Controller
             "nombre" => ["required"],
             "formato" => ["required"],
             "size" => ["required"],
-            "remitente" => ["required"]
+            "remitente" => ["required"],
+            "tipo_id" => ["required"],
+            "departamento_id" => ["required"],
+            "cliente_id" => ["required"],
+
+
         ]);
 
         $dep = Documento::find($dep);
@@ -73,6 +83,9 @@ class DocumentoController extends Controller
         $dep->formato = $request->formato;
         $dep->size = $request->size;
         $dep->remitente = $request->remitente;
+        $dep->tipo_documento_id = $request->tipo_id; // 1
+        $dep->clientes_id = $request->cliente_id;
+        $dep->departamento_id = $request->departamento_id;
         $dep->save();
 
         session()->flash("status", "Documento editado exitosamente");

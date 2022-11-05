@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="direccion" class="form-label"> direccion </label>
+                                <label for="direccion" class="form-label"> Direccion </label>
                                 <input placeholder="Ingrece la direccion" type="text" class="form-control" id="direccion"
                                     name="direccion" aria-describedby="nombreHelp"
                                     value="{{ old('direccion', $dep->direccion) }}" required>
