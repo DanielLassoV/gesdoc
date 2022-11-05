@@ -13,6 +13,11 @@ Route::get('/', function () {
 
 // Modulo empleado
 Route::middleware('auth')->get('/empleados', [EmpleadosController::class, 'index'])->name('empleados.index');
+Route::middleware('auth')->get('/empleados/create', [EmpleadosController::class, 'create'])->name('empleados.create');
+Route::middleware('auth')->post('/empleados/store', [EmpleadosController::class, 'store'])->name('empleados.store');
+Route::middleware('auth')->get('/empleados/{dep}/edit', [EmpleadosController::class, 'edit'])->name('empleados.edit');
+Route::middleware('auth')->get('/empleados/{id}/delete', [EmpleadosController::class, 'delete'])->name('empleados.delete');
+Route::middleware('auth')->patch('/empleados/{dep}/update', [EmpleadosController::class, 'update'])->name('empleados.update');
 
 // Modulo clientes
 Route::middleware('auth')->get('/clientes', [ClientesController::class, 'index'])->name('clientes.index');
@@ -33,6 +38,10 @@ Route::middleware('auth')->patch('/departamento/{dep}/update', [DepartamentoCont
 // Modulo documento
 Route::middleware('auth')->get('/documento', [DocumentoController::class, 'index'])->name('documento.index');
 Route::middleware('auth')->get('/documento/registrar', [DocumentoController::class, 'create'])->name('documento.create');
+Route::middleware('auth')->post('/documento/store', [DocumentoController::class, 'store'])->name('documento.store');
+Route::middleware('auth')->get('/documento/{dep}/edit', [DocumentoController::class, 'edit'])->name('documento.edit');
+Route::middleware('auth')->patch('/documento/{dep}/update', [DocumentoController::class, 'update'])->name('documento.update');
+
 
 // Modulo TipoDocumento
 Route::middleware('auth')->get('/tipo_documento', [TipoDocumentoController::class, 'index'])->name('tipoDocumento.index');

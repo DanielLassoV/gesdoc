@@ -22,8 +22,8 @@ class ClientesController extends Controller
     {
         $request->validate([
             "nombre" => ["required"],
-            "telefono" => ["required"],
-            "correo" => ["required"],
+            "telefono" => ["required", "size:12"],
+            "correo" => ["required", "email"],
             "direccion" => ["required"],
         ]);
 
@@ -51,7 +51,7 @@ class ClientesController extends Controller
         $request->validate([
             "nombre" => ["required"],
             "telefono" => ["required"],
-            "correo" => ["required"],
+            "correo" => ["required", "email"],
             "direccion" => ["required"],
         ]);
 

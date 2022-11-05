@@ -7,15 +7,15 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="fl"><i class="fa-solid fa-user-tie"></i></i> Listados de empleados</h3>
-                        <button type="button" class="btn btn-primary fr">
+                        <a href="{{ route('empleados.create') }}" type="button" class="btn btn-primary fr">
                             <i class="fa-solid fa-plus"></i> Nuevo
-                        </button>
+                        </a>
                     </div>
 
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
+                                <i class="fa-regular fa-circle-check"></i> {{ session('status') }}
                             </div>
                         @endif
                         <table class="table table-striped table-hover">
@@ -43,10 +43,12 @@
                                         <td>{{ $item->direccion }}</td>
                                         <td>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button type="button" class="btn btn-warning btn-sm"><i
-                                                        class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                                <button type="button" class="btn btn-danger btn-sm"><i
-                                                        class="fa-solid fa-trash-can"></i> Eliminar</button>
+                                                <a href="{{ route('empleados.edit', $item) }}" type="button"
+                                                    class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i>
+                                                    Editar</a>
+                                                <a href="{{ route('empleados.delete', $item->id) }}" type="button"
+                                                    class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i>
+                                                    Eliminar</a>
                                             </div>
                                         </td>
                                         {{-- <td>{{ $item['nombre'] }}</td> --}}

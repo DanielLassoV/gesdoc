@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="fl"><i class="fa-solid fa-network-wired"></i> Editar Departamento </h3>
+                        <h3 class="fl"><i class="fa-solid fa-marker"></i></i> Editar Departamento </h3>
 
                     </div>
 

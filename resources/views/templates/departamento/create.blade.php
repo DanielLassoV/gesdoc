@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="fl"><i class="fa-solid fa-network-wired"></i></i> Insertar departamento</h3>
+                        <h3 class="fl"><i class="fa-solid fa-notes-medical"></i></i></i> Insertar departamento</h3>
                     </div>
 
                     <div class="card-body">
@@ -21,7 +21,7 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nombre" class="form-label"> Nombre </label>
-                                <input placeholder="ingrece el nombre" type="text" class="form-control" id="nombre"
+                                <input placeholder="ingrese el nombre" type="text" class="form-control" id="nombre"
                                     name="nombre" aria-describedby="nombreHelp" value="{{ old('nombre') }}" required>
                                 @error('nombre')
                                     <div class="invalid-feedback">
