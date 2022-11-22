@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="fl"><i class="fa-solid fa-user-tie"></i></i> Listados de documentos</h3>
-                        <a href="{{route ('clientes.create')}}" type="button" class="btn btn-primary fr">
+                        <a href="{{route ('documento.create')}}" type="button" class="btn btn-primary fr">
                             <i class="fa-solid fa-plus"></i> Nuevo
                         </a>
                     </div>

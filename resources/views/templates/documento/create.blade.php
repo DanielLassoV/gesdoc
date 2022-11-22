@@ -35,7 +35,9 @@
                                 <select class="form-select" aria-label="Default select example" name="tipo_id">
                                     <option value="">Seleccione</option>
                                     @foreach ($tipos as $tipo)
-                                        <option value="{{ $tipo->id }}" {{ (old('tipo_id') == $tipo->id) ? 'selected' : '' }}>{{ $tipo->nombre }}</option>
+                                        <option value="{{ $tipo->id }}"
+                                            {{ old('tipo_id') == $tipo->id ? 'selected' : '' }}>{{ $tipo->nombre }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('tipo_id')
@@ -50,7 +52,9 @@
                                 <select class="form-select" aria-label="Default select example" name="cliente_id">
                                     <option value="">Seleccione</option>
                                     @foreach ($clientes as $cliente)
-                                        <option value="{{ $cliente->id }}" {{ (old('cliente_id') == $cliente->id) ? 'selected' : '' }}>{{ $cliente->nombre }}</option>
+                                        <option value="{{ $cliente->id }}"
+                                            {{ old('cliente_id') == $cliente->id ? 'selected' : '' }}>
+                                            {{ $cliente->nombre }}</option>
                                     @endforeach
                                 </select>
                                 @error('cliente_id')
@@ -65,7 +69,9 @@
                                 <select class="form-select" aria-label="Default select example" name="departamento_id">
                                     <option value="">Seleccione</option>
                                     @foreach ($departamentos as $departamento)
-                                        <option value="{{ $departamento->id }}" {{(old('departamento_id') == $departamento->id) ? 'selected' : ''}} >{{ $departamento->nombre }}</option>
+                                        <option value="{{ $departamento->id }}"
+                                            {{ old('departamento_id') == $departamento->id ? 'selected' : '' }}>
+                                            {{ $departamento->nombre }}</option>
                                     @endforeach
                                 </select>
                                 @error('departamento_id')
