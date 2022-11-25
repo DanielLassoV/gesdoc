@@ -107,7 +107,7 @@ class DocumentoController extends Controller
         $originalName = ''; //Nombre original del archivo
         $fileExtension = ''; //Extension del archivo jpg.pdf etc
         $filesize = ''; //Tamaño del archivo
-        $fileName = ''; //Nombre generado para evitar duplicidad y remplazo (Nombre incriptado)
+        $filename = ''; //Nombre generado para evitar duplicidad y remplazo (Nombre incriptado)
         $path = ''; //Ubicacion 
 
         if($request->hasFile("file")) //Verifica si hay un archivo llamado file, si existe 
@@ -148,6 +148,15 @@ class DocumentoController extends Controller
     public function download($file)
     {
         return response()->download(storage_path('/app/documentos/'. $file));
+    }
+
+    public function delete($id)
+    {
+        Documento::destroy($id);
+
+        session()->flash('status', 'Documento eliminado exitosamente');
+        
+        return to_route('documento.index');
     }
 }
 
