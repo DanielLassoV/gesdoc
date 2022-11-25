@@ -40,7 +40,7 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->tipo_documento_id }}</td>
+                                        <td>{{ $item->tipodocumento->nombre }}</td>
                                         <td>{{ $item->clientes->nombre }}</td>
                                         {{-- Si no tiene trae nada poner vacio --}}
                                         <td>{{ ($item->departamento) ? $item->departamento->nombre : '' }}</td>
