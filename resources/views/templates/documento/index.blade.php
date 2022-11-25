@@ -39,7 +39,7 @@
                                 @foreach ($documento as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->usuarios_id }}</td>
+                                        <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->tipo_documento_id }}</td>
                                         <td>{{ $item->clientes->nombre }}</td>
                                         {{-- Si no tiene trae nada poner vacio --}}

@@ -11,7 +11,7 @@ class Empleado extends Model
 
     protected $table = 'empleado';
 
-    public function user()
+    public function user()  
     {
         return $this->belongsTo(User::class, 'usuarios_id');
     }

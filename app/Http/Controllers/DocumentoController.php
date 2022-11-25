@@ -14,7 +14,7 @@ class DocumentoController extends Controller
 {
     public function index()
     {
-        $documento = Documento::with("departamento","clientes")->get();
+        $documento = Documento::with("departamento","clientes","user")->get();
         // return $documento;
         return view('templates/documento/index', compact('documento'));
     }
@@ -23,7 +23,7 @@ class DocumentoController extends Controller
         $tipos = TipoDocumentos::all();
         $clientes = Clientes::all();
         $departamentos =Departamento::all();
-        return view('templates/documento/create', compact('tipos','clientes','departamentos'));
+        return view('templates/documento/create', compact('tipos','c    lientes','departamentos'));
 
     }
 
