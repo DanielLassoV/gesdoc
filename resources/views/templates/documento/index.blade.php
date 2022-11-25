@@ -41,7 +41,8 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->usuarios_id }}</td>
                                         <td>{{ $item->tipo_documento_id }}</td>
-                                        <td>{{ $item->clientes_id }}</td>
+                                        <td>{{ $item->clientes->nombre }}</td>
+                                        {{-- Si no tiene trae nada poner vacio --}}
                                         <td>{{ ($item->departamento) ? $item->departamento->nombre : '' }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->formato }}</td>

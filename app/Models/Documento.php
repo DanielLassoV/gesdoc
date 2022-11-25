@@ -14,4 +14,10 @@ class Documento extends Model
     {
         return $this->belongsTo(Departamento::class, 'departamento_id');
     }
+
+    public function clientes()
+    {
+        return $this->belongsTo(Clientes::class, 'clientes_id');
+    }
+
 }
