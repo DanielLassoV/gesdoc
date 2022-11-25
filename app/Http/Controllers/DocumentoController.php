@@ -31,8 +31,8 @@ class DocumentoController extends Controller
     {
         $request->validate([
             "nombre" => ["required"],
-            "formato" => ["required"],
-            "size" => ["required"],
+                // "formato" => ["required"],
+                // "size" => ["required"],
             "remitente" => ["required"],
             "tipo_id" => ["required"],
             "departamento_id" => ["required"],
@@ -46,8 +46,9 @@ class DocumentoController extends Controller
         $dep->clientes_id = $request->cliente_id;
         $dep->departamento_id = $request->departamento_id;
         $dep->nombre = $request->nombre;
-        $dep->formato = $request->formato;
-        $dep->size = $request->size;
+        // $dep->formato = $request->formato;
+        // $dep->size = $request->size;
+        
         $dep->remitente = $request->remitente;
         $dep->save();
 
@@ -69,8 +70,8 @@ class DocumentoController extends Controller
     {
         $request->validate([
             "nombre" => ["required"],
-            "formato" => ["required"],
-            "size" => ["required"],
+            // "formato" => ["required"],
+            // "size" => ["required"],
             "remitente" => ["required"],
             "tipo_id" => ["required"],
             "departamento_id" => ["required"],
@@ -81,8 +82,8 @@ class DocumentoController extends Controller
 
         $dep = Documento::find($dep);
         $dep->nombre = $request->nombre;
-        $dep->formato = $request->formato;
-        $dep->size = $request->size;
+        // $dep->formato = $request->formato;
+        // $dep->size = $request->size;
         $dep->remitente = $request->remitente;
         $dep->tipo_documento_id = $request->tipo_id; // 1
         $dep->clientes_id = $request->cliente_id;

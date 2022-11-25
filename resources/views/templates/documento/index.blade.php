@@ -27,8 +27,8 @@
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Departamento</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Formato</th>
-                                    <th scope="col">Tamaño</th>
+                                    {{-- <th scope="col">Formato</th>
+                                    <th scope="col">Tamaño</th> --}}
                                     <th scope="col">Remitente</th>
                                     <th scope="col" class="mw-200">
                                         <div class="fr">Acciones</div>
@@ -45,8 +45,8 @@
                                         {{-- Si no tiene trae nada poner vacio --}}
                                         <td>{{ ($item->departamento) ? $item->departamento->nombre : '' }}</td>
                                         <td>{{ $item->nombre }}</td>
-                                        <td>{{ $item->formato }}</td>
-                                        <td>{{ $item->size }}</td>
+                                        {{-- <td>{{ $item->formato }}</td>
+                                        <td>{{ $item->size }}</td> --}}
                                         <td>{{ $item->remitente }}</td>
                                         <td>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

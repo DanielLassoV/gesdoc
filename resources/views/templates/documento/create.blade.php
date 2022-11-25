@@ -81,7 +81,7 @@
                                 @enderror
                             </div>
 
-                            <div class="mb-3">
+                            {{-- <div class="mb-3">
                                 <label for="formato" class="form-label"> Formato </label>
                                 <input placeholder="Ingresar el formato" type="text" class="form-control" id="formato"
                                     name="formato" aria-describedby="formatoHelp" value="{{ old('formato') }}" required>
@@ -101,7 +101,7 @@
                                         {{ $message }}
                                     </div>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             <div class="mb-3">
                                 <label for="remitente" class="form-label"> Remitente </label>
