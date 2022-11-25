@@ -10,7 +10,10 @@ class EmpleadosController extends Controller
 {
     public function index()
     {
-        $empleados = Empleado::all();
+        
+        // "", Para meter  mas relaciones
+        $empleados = Empleado::with("user")->get();
+        // return $empleados;
         return view('templates/empleados/index', compact('empleados'));
     }
 

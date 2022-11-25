@@ -42,7 +42,7 @@
                                         <td>{{ $item->usuarios_id }}</td>
                                         <td>{{ $item->tipo_documento_id }}</td>
                                         <td>{{ $item->clientes_id }}</td>
-                                        <td>{{ $item->departamento_id }}</td>
+                                        <td>{{ ($item->departamento) ? $item->departamento->nombre : '' }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->formato }}</td>
                                         <td>{{ $item->size }}</td>

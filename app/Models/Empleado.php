@@ -10,4 +10,10 @@ class Empleado extends Model
     use HasFactory;
 
     protected $table = 'empleado';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'usuarios_id');
+    }
+
 }

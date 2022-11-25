@@ -9,4 +9,9 @@ class Documento extends Model
 {
     use HasFactory;
     protected $table = 'document';
+    
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class, 'departamento_id');
+    }
 }

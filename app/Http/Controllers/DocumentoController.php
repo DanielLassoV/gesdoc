@@ -14,7 +14,8 @@ class DocumentoController extends Controller
 {
     public function index()
     {
-        $documento = Documento::all();
+        $documento = Documento::with("departamento")->get();
+        // return $documento;
         return view('templates/documento/index', compact('documento'));
     }
 

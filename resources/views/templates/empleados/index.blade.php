@@ -36,7 +36,7 @@
                                 @foreach ($empleados as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->usuarios_id }}</td>
+                                        <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->documento_de_identidad }}</td>
                                         <td>{{ $item->telefono }}</td>
