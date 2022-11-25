@@ -45,6 +45,10 @@ Route::middleware('auth')->patch('/documento/{dep}/update', [DocumentoController
 
 // Modulo TipoDocumento
 Route::middleware('auth')->get('/tipo_documento', [TipoDocumentoController::class, 'index'])->name('tipoDocumento.index');
+Route::middleware('auth')->get('/tipo_documento/registrar', [TipoDocumentoController::class, 'create'])->name('tipoDocumento.create');
+Route::middleware('auth')->post('/tipo_documento/store', [TipoDocumentoController::class, 'store'])->name('tipoDocumento.store');
+Route::middleware('auth')->get('/tipo_documento/{dep}/edit', [TipoDocumentoController::class, 'edit'])->name('tipoDocumento.edit');
+Route::middleware('auth')->patch('/tipo_documento/{dep}/update', [TipoDocumentoController::class, 'update'])->name('tipoDocumento.update');
 
 
 Auth::routes();

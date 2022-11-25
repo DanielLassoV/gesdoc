@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="fl"><i class="fa-solid fa-layer-group"></i> Listados de tipos de documento</h3>
-                        <button type="button" class="btn btn-primary fr">
+                        <a href="{{ route('tipoDocumento.create') }}" type="button" class="btn btn-primary fr">
                             <i class="fa-solid fa-plus"></i> Nuevo
-                        </button>
+                        </a>
                     </div>
 
                     <div class="card-body">
@@ -35,8 +35,9 @@
                                         <td>{{ $item->nombre }}</td>
                                         <td>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                <button type="button" class="btn btn-warning btn-sm"><i
-                                                        class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                                <a href="{{ route('tipoDocumento.edit', $item) }}" type="button"
+                                                class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i>
+                                                Editar</a>
                                                 <button type="button" class="btn btn-danger btn-sm"><i
                                                         class="fa-solid fa-trash-can"></i> Eliminar</button>
                                             </div>
