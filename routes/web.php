@@ -41,7 +41,9 @@ Route::middleware('auth')->get('/documento/registrar', [DocumentoController::cla
 Route::middleware('auth')->post('/documento/store', [DocumentoController::class, 'store'])->name('documento.store');
 Route::middleware('auth')->get('/documento/{dep}/edit', [DocumentoController::class, 'edit'])->name('documento.edit');
 Route::middleware('auth')->patch('/documento/{dep}/update', [DocumentoController::class, 'update'])->name('documento.update');
+Route::middleware('auth')->get('/documento/download/{file?}', [DocumentoController::class, 'download'])->name('documento.download');
 
+ 
 
 // Modulo TipoDocumento
 Route::middleware('auth')->get('/tipo_documento', [TipoDocumentoController::class, 'index'])->name('tipoDocumento.index');

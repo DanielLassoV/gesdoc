@@ -37,7 +37,25 @@ class DocumentoController extends Controller
             "tipo_id" => ["required"],
             "departamento_id" => ["required"],
             "cliente_id" => ["required"],
+            'file' => 'required|mimes:pdf,xlx,csv,jpeg,jpg,png,doc,docx,xlsx',
+            
         ]);
+
+
+        $originalName = ''; //Nombre original del archivo
+        $fileExtension = ''; //Extension del archivo jpg.pdf etc
+        $filesize = ''; //Tamaño del archivo
+        $fileName = ''; //Nombre generado para evitar duplicidad y remplazo (Nombre incriptado)
+        $path = ''; //Ubicacion 
+
+        if($request->hasFile("file")) //Verifica si hay un archivo llamado file, si existe 
+        {
+            $originalName = $request->file->getClientOriginalName(); // Extrae el nombre original del archivo
+            $fileExtension = $request->file->extension();
+            $filesize = $request->file->getSize();
+            $filename = time().'.'. $request->file->extension(); //Ej. 21376387136.jpg
+            $path = $request->file->storeAs("Documentos",$filename); // Guardar en la carpeta documentos el archivo
+        }
         
 
         $dep = new Documento();
@@ -46,9 +64,15 @@ class DocumentoController extends Controller
         $dep->clientes_id = $request->cliente_id;
         $dep->departamento_id = $request->departamento_id;
         $dep->nombre = $request->nombre;
-        // $dep->formato = $request->formato;
-        // $dep->size = $request->size;
-        
+
+                //Setiando las nuevas variables con los nuevos que estan arriba 
+
+        $dep->archivo_formato = $fileExtension ;
+        $dep->archivo_size = $filesize;
+        $dep->archivo_nombre = $filename;
+        $dep->archivo_nombre_anterior = $originalName;
+        $dep->archivo_url = $path;
+
         $dep->remitente = $request->remitente;
         $dep->save();
 
@@ -80,6 +104,27 @@ class DocumentoController extends Controller
 
         ]);
 
+        $originalName = ''; //Nombre original del archivo
+        $fileExtension = ''; //Extension del archivo jpg.pdf etc
+        $filesize = ''; //Tamaño del archivo
+        $fileName = ''; //Nombre generado para evitar duplicidad y remplazo (Nombre incriptado)
+        $path = ''; //Ubicacion 
+
+        if($request->hasFile("file")) //Verifica si hay un archivo llamado file, si existe 
+        {
+            $originalName = $request->file->getClientOriginalName(); // Extrae el nombre original del archivo
+            $fileExtension = $request->file->extension();
+            $filesize = $request->file->getSize();
+            $filename = time().'.'. $request->file->extension(); //Ej. 21376387136.jpg
+            $path = $request->file->storeAs("Documentos",$filename); // Guardar en la carpeta documentos el archivo
+        }
+        
+                //Setiando las nuevas variables con los nuevos que estan arriba 
+
+
+
+
+
         $dep = Documento::find($dep);
         $dep->nombre = $request->nombre;
         // $dep->formato = $request->formato;
@@ -88,6 +133,11 @@ class DocumentoController extends Controller
         $dep->tipo_documento_id = $request->tipo_id; // 1
         $dep->clientes_id = $request->cliente_id;
         $dep->departamento_id = $request->departamento_id;
+        $dep->archivo_formato = $fileExtension ;
+        $dep->archivo_size = $filesize;
+        $dep->archivo_nombre = $filename;
+        $dep->archivo_nombre_anterior = $originalName;
+        $dep->archivo_url = $path;
         $dep->save();
 
         session()->flash("status", "Documento editado exitosamente");
@@ -95,5 +145,9 @@ class DocumentoController extends Controller
         return to_route("documento.index");
     }
 
+    public function download($file)
+    {
+        return response()->download(storage_path('/app/documentos/'. $file));
+    }
 }
 

@@ -15,7 +15,8 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form class="needs-validation" novalidate method="POST" action="{{ route('documento.store') }}">
+                        <form enctype="multipart/form-data" class="needs-validation" novalidate method="POST"
+                            action="{{ route('documento.store') }}">
                             {{-- csrf etiqueta de blade que agrega un token oculto en el formulario para evitar falsificacion 
                             de peticion  --}}
                             @csrf
@@ -81,6 +82,7 @@
                                 @enderror
                             </div>
 
+
                             {{-- <div class="mb-3">
                                 <label for="formato" class="form-label"> Formato </label>
                                 <input placeholder="Ingresar el formato" type="text" class="form-control" id="formato"
@@ -114,6 +116,17 @@
                                     </div>
                                 @enderror
                             </div>
+
+                            <div class="mb-3">
+                                <label for="file" class="form-label">Carga el documento</label>
+                                <input class="form-control" type="file" id="file" name="file">
+                                @error('file')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
 
                             <button type="submit" class="btn btn-primary"> Registrar </button>
                             <a type="button" href="{{ route('documento.index') }}" class="btn btn-secondary"> Cancelar

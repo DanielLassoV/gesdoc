@@ -30,6 +30,7 @@
                                     {{-- <th scope="col">Formato</th>
                                     <th scope="col">Tamaño</th> --}}
                                     <th scope="col">Remitente</th>
+                                    <th scope="col">Archivo</th>
                                     <th scope="col" class="mw-200">
                                         <div class="fr">Acciones</div>
                                     </th>
@@ -48,6 +49,7 @@
                                         {{-- <td>{{ $item->formato }}</td>
                                         <td>{{ $item->size }}</td> --}}
                                         <td>{{ $item->remitente }}</td>
+                                        <td><a href="{{ route('documento.download', $item->archivo_nombre)}}">{{ $item->archivo_nombre}}</a></td>
                                         <td>
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                 <a href="{{ route('documento.edit', $item) }}" type="button"
