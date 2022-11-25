@@ -23,7 +23,7 @@ class DocumentoController extends Controller
         $tipos = TipoDocumentos::all();
         $clientes = Clientes::all();
         $departamentos =Departamento::all();
-        return view('templates/documento/create', compact('tipos','c    lientes','departamentos'));
+        return view('templates/documento/create', compact('tipos','clientes','departamentos'));
 
     }
 
