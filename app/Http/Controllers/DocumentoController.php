@@ -110,14 +110,7 @@ class DocumentoController extends Controller
         $filename = ''; //Nombre generado para evitar duplicidad y remplazo (Nombre incriptado)
         $path = ''; //Ubicacion 
 
-        if($request->hasFile("file")) //Verifica si hay un archivo llamado file, si existe 
-        {
-            $originalName = $request->file->getClientOriginalName(); // Extrae el nombre original del archivo
-            $fileExtension = $request->file->extension();
-            $filesize = $request->file->getSize();
-            $filename = time().'.'. $request->file->extension(); //Ej. 21376387136.jpg
-            $path = $request->file->storeAs("Documentos",$filename); // Guardar en la carpeta documentos el archivo
-        }
+        
         
                 //Setiando las nuevas variables con los nuevos que estan arriba 
 
@@ -132,12 +125,21 @@ class DocumentoController extends Controller
         $dep->remitente = $request->remitente;
         $dep->tipo_documento_id = $request->tipo_id; // 1
         $dep->clientes_id = $request->cliente_id;
-        $dep->departamento_id = $request->departamento_id;
-        $dep->archivo_formato = $fileExtension ;
-        $dep->archivo_size = $filesize;
-        $dep->archivo_nombre = $filename;
-        $dep->archivo_nombre_anterior = $originalName;
-        $dep->archivo_url = $path;
+        $dep->departamento_id =     $request->departamento_id;
+        
+        if($request->hasFile("file")) //Verifica si hay un archivo llamado file, si existe 
+        {
+            $originalName = $request->file->getClientOriginalName(); // Extrae el nombre original del archivo
+            $fileExtension = $request->file->extension();
+            $filesize = $request->file->getSize();
+            $filename = time().'.'. $request->file->extension(); //Ej. 21376387136.jpg
+            $path = $request->file->storeAs("Documentos",$filename); // Guardar en la carpeta documentos el archivo
+            $dep->archivo_formato = $fileExtension ;
+            $dep->archivo_size = $filesize;
+            $dep->archivo_nombre = $filename;
+            $dep->archivo_nombre_anterior = $originalName;
+            $dep->archivo_url = $path;
+        }
         $dep->save();
 
         session()->flash("status", "Documento editado exitosamente");

@@ -42,7 +42,7 @@ class EmpleadosController extends Controller
         session()->flash("status", "Empleado creado exitosamente");
         // to_route es un helper de laravel para abreviar 
 
-        return view('templates/empleados/create');
+        return to_route("empleados.index");
 
 
     }

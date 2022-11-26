@@ -41,8 +41,8 @@
                                     <tr>
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->tipodocumento->nombre }}</td>
-                                        <td>{{ $item->clientes->nombre }}</td>
+                                        <td>{{ ($item->tipodocumento) ? $item->tipodocumento->nombre : '' }}</td>
+                                        <td>{{ ($item->clientes) ? $item->clientes->nombre : '' }}</td>
                                         {{-- Si no tiene trae nada poner vacio --}}
                                         <td>{{ ($item->departamento) ? $item->departamento->nombre : '' }}</td>
                                         <td>{{ $item->nombre }}</td>

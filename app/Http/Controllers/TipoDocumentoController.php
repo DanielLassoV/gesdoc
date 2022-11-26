@@ -52,5 +52,16 @@ class TipoDocumentoController extends Controller
         session()->flash("status", "Tipo de documento editado exitosamente");
 
         return to_route("tipoDocumento.index");
+
+        
+    }
+
+    public function delete($id)
+    {
+        TipoDocumentos::destroy($id);
+
+        session()->flash('status', 'Tipo eliminado exitosamente');
+        
+        return to_route('tipoDocumento.index');
     }
 }

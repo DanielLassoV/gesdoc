@@ -40,7 +40,7 @@ Route::middleware('auth')->get('/documento', [DocumentoController::class, 'index
 Route::middleware('auth')->get('/documento/registrar', [DocumentoController::class, 'create'])->name('documento.create');
 Route::middleware('auth')->post('/documento/store', [DocumentoController::class, 'store'])->name('documento.store');
 Route::middleware('auth')->get('/documento/{dep}/edit', [DocumentoController::class, 'edit'])->name('documento.edit');
-Route::middleware('auth')->get('/departamento/{id}/delete', [DocumentoController::class, 'delete'])->name('documento.delete');
+Route::middleware('auth')->get('/documento/{id}/delete', [DocumentoController::class, 'delete'])->name('documento.delete');
 Route::middleware('auth')->patch('/documento/{dep}/update', [DocumentoController::class, 'update'])->name('documento.update');
 Route::middleware('auth')->get('/documento/download/{file?}', [DocumentoController::class, 'download'])->name('documento.download');
 
@@ -51,6 +51,7 @@ Route::middleware('auth')->get('/tipo_documento', [TipoDocumentoController::clas
 Route::middleware('auth')->get('/tipo_documento/registrar', [TipoDocumentoController::class, 'create'])->name('tipoDocumento.create');
 Route::middleware('auth')->post('/tipo_documento/store', [TipoDocumentoController::class, 'store'])->name('tipoDocumento.store');
 Route::middleware('auth')->get('/tipo_documento/{dep}/edit', [TipoDocumentoController::class, 'edit'])->name('tipoDocumento.edit');
+Route::middleware('auth')->get('/tipo_documento/{id}/delete', [TipoDocumentoController::class, 'delete'])->name('tipoDocumento.delete');
 Route::middleware('auth')->patch('/tipo_documento/{dep}/update', [TipoDocumentoController::class, 'update'])->name('tipoDocumento.update');
 
 

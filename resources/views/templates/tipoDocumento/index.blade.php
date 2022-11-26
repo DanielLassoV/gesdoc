@@ -38,8 +38,9 @@
                                                 <a href="{{ route('tipoDocumento.edit', $item) }}" type="button"
                                                 class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-to-square"></i>
                                                 Editar</a>
-                                                <button type="button" class="btn btn-danger btn-sm"><i
-                                                        class="fa-solid fa-trash-can"></i> Eliminar</button>
+                                                <a href="{{ route('tipoDocumento.delete', $item->id) }}" type="button"
+                                                    class="btn btn-danger btn-sm"><i class="fa-solid fa-trash-can"></i>
+                                                    Eliminar</a>
                                             </div>
                                         </td>
                                         {{-- <td>{{ $item['nombre'] }}</td> --}}
